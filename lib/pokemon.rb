@@ -1,7 +1,7 @@
 # require 'pry'
 class Pokemon
-  attr_accessor  :id, :name, :type, :db, :hp
-
+  attr_accessor  :id, :name, :type, :db
+  
   def initialize(id:, name:, type:, db:)
     @id = id
     @name = name
@@ -12,7 +12,6 @@ class Pokemon
 
   def self.save(name, type, db)
     poke =   db.execute("INSERT INTO pokemon (name, type) VALUES (?,?)", name, type)
-      binding.pry
   end
 
   def self.find(id, db)
